@@ -21,7 +21,16 @@ fn main() {
     //     dialog.hide();
     // });
 
-    window.show_all();
+    window.show();
+
+    // Handle closing of the window.
+    window.connect_delete_event(|_, _| {
+        // Stop the main loop.
+        gtk::main_quit();
+
+        // Let the default handler destroy the window.
+        Inhibit(false)
+    });
 
     gtk::main();
 }
