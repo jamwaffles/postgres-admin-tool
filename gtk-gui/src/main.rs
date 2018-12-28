@@ -6,11 +6,7 @@ fn main() {
         return;
     }
 
-    let builder = gtk::Builder::new();
-
-    builder
-        .add_from_file("src/ui/PostgresAdminTool.glade")
-        .unwrap();
+    let builder = gtk::Builder::new_from_string(include_str!("./ui/PostgresAdminTool.glade"));
 
     let window: gtk::Window = builder.get_object("window-connections").unwrap();
     // let button: gtk::Button = builder.get_object("button1").unwrap();
