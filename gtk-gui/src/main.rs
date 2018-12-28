@@ -17,6 +17,12 @@ fn main() {
     //     dialog.hide();
     // });
 
+    let new_connection_name: gtk::Entry = builder.get_object("new_connection_name").unwrap();
+
+    new_connection_name.connect_changed(|input| {
+        println!("CHanged m8 {:?}", input.get_text());
+    });
+
     window.show();
 
     // Handle closing of the window.
